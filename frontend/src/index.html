@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Cadastro de Fucionários</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Cadastro de Fucionários">
+        <meta property="og:description" content="Cadastro de Fucionários">
+        <meta property="og:url" content="https://github.com/steniovm/dadosfuncionarios/">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 38 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Cadastro de funcionários</h1>
+            <ul>
+                <li>Se deseja adcionar novo cadastro primeiro preeencha os dados.</li>
+                <li>Se deseja ver os Aniversariantes do mês, preencha o filtro de mês.</li>
+                <li>Se deseja ver os funcionários de algum setor, preencha o filtro de setor.</li>
+                <li>As opções de "Ver Cadastro" e "Ver Ramais" não necessitam de dados de entrada.</li>
+            </ul>
+            <span>Click na opção desejada:</span>
+            <div id="options">
+                <button type="button" id="bview" class="buttonboard">Ver cadastros</button>
+                <button type="button" id="bramais" class="buttonboard">Ramais</button>
+            </div>
+            <table id="results"></table>
+            <div class="inputs">
+                <fieldset>
+                    <h2>Novo Cadastro:</h2>
+                    <label>Matricula:
+                    <input id="inmatricula" type="number">
+                    </label>
+                    <label>Nome:
+                    <input id="inname" type="text">
+                    </label>
+                    <label>Ramal
+                    <input id="inramal" type="number">
+                    </label>
+                    <label>Email
+                    <input id="inemail" type="mail">
+                    </label>
+                    <label>Setor:
+                    <input id="insetor" type="text">
+                    </label>
+                    <label>Data de Nascimento:
+                    <input id="indate" type="date">
+                    </label>
+                    <button type="button" id= "binclude" class="buttonboard">Incluir cadastro</button>
+                </fieldset>
+                <fieldset>
+                    <h2>Mês:</h2>
+                    <input id="inmonth" type="month">
+                    <button type="button" id="bbirthday" class="buttonboard">Aniversariantes do Mês</button>
+                </fieldset>
+                <fieldset>
+                    <h2>Setor:</h2>
+                    <input id="inseto" type="text">
+                    <button type="button" id="bsetor" class="buttonboard">Setor</button>
+                </fieldset>
+            </div>
+        </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>

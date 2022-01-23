@@ -1,0 +1,17 @@
+{
+  "name": "dadosfuncionarios",
+  "version": "1.0.0",
+  "main": "process.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/cadastropessoas.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-generator": "^4.16.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
