@@ -17,7 +17,9 @@ app.get("/include=*", (req, res) => {
     console.log(obj);
     console.log(obj["Matricula"]);
     if (req.params[0]){
-        res.send(myModule.incluir(cadastrofunc,obj))
+        res.send(myModule.incluir(cadastrofunc,obj));
+        var json = JSON.stringify(cadastrofunc);
+        fs.writeFile('funcionarios.json', json, 'utf8', err=>{console.log(err)});
     } else {
         res.send("É necessário digitar os dados");
     }
