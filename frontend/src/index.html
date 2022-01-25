@@ -29,11 +29,6 @@
                 <li>As opções de "Ver Cadastro" e "Ver Ramais" não necessitam de dados de entrada.</li>
             </ul>
             <span>Click na opção desejada:</span>
-            <div id="options">
-                <button type="button" id="bview" class="buttonboard">Ver cadastros</button>
-                <button type="button" id="bramais" class="buttonboard">Ramais</button>
-            </div>
-            <table id="results"></table>
             <div class="inputs">
                 <fieldset>
                     <h2>Novo Cadastro:</h2>
@@ -41,7 +36,10 @@
                     <input id="inmatricula" type="number">
                     </label>
                     <label>Nome:
-                    <input id="inname" type="text">
+                    <input id="infirstname" type="text">
+                    </label>
+                    <label>Sobrenome:
+                    <input id="inlastname" type="text">
                     </label>
                     <label>Ramal
                     <input id="inramal" type="number">
@@ -68,6 +66,11 @@
                     <button type="button" id="bsetor" class="buttonboard">Setor</button>
                 </fieldset>
             </div>
+            <div id="options">
+                <button type="button" id="bview" class="buttonboard">Ver cadastros</button>
+                <button type="button" id="bramais" class="buttonboard">Ramais</button>
+            </div>
+            <table id="results"></table>
         </main>
             <footer>
                 <span>Instituto Alpha Lumen</span><br/>
