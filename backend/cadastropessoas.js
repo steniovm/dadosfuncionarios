@@ -4,12 +4,18 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 const myModule = require('./componentes/modcadpessoas.js');
+const mycalc = require('./componentes/modcalculator.js');
+let calca = new mycalc.calculadora;
+const { ppid } = require('process');
+const { stringify } = require('querystring');
 //const cadastrofunc = require('./funcionarios.json');
 const database = './database.json';
 const cadastrofunc = require(database);
 app.use(express.json());
 app.use(cors());
 //app.use(express.static('../frontend/src/'));
+app.use('/funcionarios',express.static('../frontend/src/funcionarios'));
+app.use('/calculadora',express.static('../frontend/src/calculadora'));
 
 app.post("/view", (req, res) => {
     console.log("teste view");
@@ -60,6 +66,21 @@ app.post("/ramais", (req, res) => {
     res.send(myModule.mostrarramais(cadastrofunc));
     return false;
 });
+
+app.get("/calc/", (req, res) => {
+    console.log(req.query);
+    if (req.query.ops && req.query.op1 && req.query.op2){
+        calca.setOperation(req.query.ops);
+        calca.setOperand1(parseFloat(req.query.op1));
+        calca.setOperand2(parseFloat(req.query.op2));
+        console.log(calca.getOperand1()+calca.getOperation()+calca.getOperand2()+" = "+calca.getResult());
+        res.send([calca.getResult()]);
+        return true;
+    }else{
+        res.send('falta de parametros');
+    }
+    return false;
+})
 
 app.listen(port, () =>{
     console.log('listening http://localhost:'+ port);
