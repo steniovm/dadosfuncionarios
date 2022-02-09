@@ -4,15 +4,7 @@ let bimputs = document.getElementById("bimputs");
 let imputgame = document.querySelectorAll(".imputgame");
 let imputlabel = document.querySelectorAll(".imputlabel");
 let catalogtable = document.getElementById("catalogtable");
-let gamemodel = {
-	"id": "",
-	"game": "",
-	"year": "",
-	"genre": "",
-	"multiplayer": "",
-	"offline": "",
-	"crossplataform": ""
-};
+
 function newcatalog(){
     catalogtable.innerHTML="";
     let headerline = document.createElement("tr");
@@ -28,7 +20,7 @@ function addlinecatalog(data){
     let line = document.createElement("tr");
     let dates = new Array(imputlabel.length);
     imputlabel.forEach((item,index)=>{
-        dates[index] = document.createElement("th");
+        dates[index] = document.createElement("td");
     });
     dates[0].innerHTML = data.id;
     dates[1].innerHTML = data.game;
@@ -61,7 +53,7 @@ function enviar(){
     newgame.genre = imputgame[3].value;
     newgame.multiplayer = imputgame[4].checked;
     newgame.offline = imputgame[5].checked;
-    newgame.crossplataform = imputgame[6].value;
+    newgame.crossplataform = imputgame[6].checked;
     console.log(newgame);
     envio(newgame);
 }
