@@ -5,17 +5,21 @@ const app = express();
 const port = 3000;
 const myModule = require('./componentes/modcadpessoas.js');
 const mycalc = require('./componentes/modcalculator.js');
+const myGames = require('./componentes/modgames.js');
 let calca = new mycalc.calculadora;
 const { ppid } = require('process');
 const { stringify } = require('querystring');
 //const cadastrofunc = require('./funcionarios.json');
 const database = './database.json';
+const dbgames = './gamesdatabase.json';
 const cadastrofunc = require(database);
+const gamescat = require(dbgames);
 app.use(express.json());
 app.use(cors());
 //app.use(express.static('../frontend/src/'));
 app.use('/funcionarios',express.static('../frontend/src/funcionarios'));
 app.use('/calculadora',express.static('../frontend/src/calculadora'));
+app.use('/games',express.static('../frontend/src/gamesmagazine'));
 
 app.post("/view", (req, res) => {
     console.log("teste view");
@@ -80,8 +84,28 @@ app.get("/calc/", (req, res) => {
         res.send('falta de parametros');
     }
     return false;
-})
+});
+app.post("/gameadd",(req,res) => {
+    console.log(req.body);
+    res.send(myGames.includes(gamescat,req.body));
+    var dbs = JSON.stringify(gamescat);
+    fs.writeFile(dbgames, dbs, 'utf8', err=>{console.log(err)});
+    console.log(gamescat[gamescat.length-1]);
+    return false;
+});
+app.get("/gamecat",(req,res) => {
+    res.send(gamescat);
+    console.log(gamescat);
+    return false;
+});
 
-app.listen(port, () =>{
-    console.log('listening http://localhost:'+ port);
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    app.listen(port, () =>{
+        console.log(`listening: http://${add}:${port}/funcionarios`);
+        console.log(`listening: http://${add}:${port}/calculadora`);
+        console.log(`listening: http://${add}:${port}/games`);
+        //console.log(err);
+        //console.log(fam);
+    });
+    return true;
 });
